@@ -1,0 +1,100 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-label-tangential&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcsA2musiaRjgB5gEDkgICqC_agIwCsgev8BMALIIE6gZ01A5AaAx6MDq2oHDnOuVgBfEgF0ANGjQB6NYDB1QCFugLy9Aw_qAjdMD3noBiVQNwGgZXlA5JqB4HRIhgWAIYAnAqgqvnAEwgBXAGcCQgBmAAYlWDoADnCAUjoFElkVdBJnaABzXABBKghgsgoAW2cqAhZwyJlAsDcwXOzcAgB2NhS02BJvPyD8wo9agAtgAHcCADNnLECcLvQwAE8QfGiAY2cwHCzgVyW6BdgfLecQulzJrOHMwvroQ-jcrAAjW-dHi6wsnFcID6iF1cP2gkGgAOiACFnMNvBAHoDoc1fDhAsNPpCcC5XEEMThoPCMd4AF4QLBE_zQHAQWAAETcQUCM2cJQx_lcAGt4c5YAAxZyBYCfADCLN-wBgIvxYG8WFglz-mzgACUcCB_C8sBB1iLhtyRU5gCUXv8DSU9sBAgbskLAcLLfVYMrtRC6MKAC_bY4AHToAEkAG7ACCuHCfACifxlOFdAHFnC9JYDYzdwZ8ABIwHzsgWfP3QPyu_M-GCo02Av3eACOefqWAOgIAUnsTgjogBpfFLV3t_xjZwQMCfdtLYFLYl1TKfAAyODe0CT0QAsr5nFkBZtXJ8V1rtzN6nv2YOAlbAUvqNrbcuYLsta6lzBtlSsq4r3QH6_1us3wA5FkQE1XR_NUZk-H8IB-P5XQAeTKNs6AABUyFlXSQ7wsn8ZwG2iBDfn8T4EL2MB_HXclAWVI13k-ZVGX-OBeRwHxfi2KB4OVfsC1dABlFlgG45xgFgAAVI0cFgTIfFgBC_mgdYIFWT4uN-QDFJwJZ1mGLFcFPaIuIgX5vFgWdS0U-F10cUNFOAfwwGGWAuP8VtFJAAd4IcpzAQcmSxQjQJ-zBCBPiEiBzVcABaWc6jDQEROyV0AFV104z54pxDCsM-AA1TJMOIrL9LAWA_1ZQEAC0WRU5JOhIEgNEAAnzAHALQBvz0AKDlAG7lEgwAlLBIBADxUhq9A5j-VEhgoZZVnoN4tyOE56hCNgADYoiqSJYAATlaFbqiidb1t2thtrWtguF2_bYFWqI2EO2AYlO2AuHOy6NvO1oYiiVonp22A2FCXa_o2lhdvu9b3o2tbnt-o6zqiGIweehHvpiIHYB4AHnr2mGXqxzbduWwGokWsHMex0mSYxr61pic6SdB3b4e-xb0e-ngtou77WgBumNrZmIboxtbabZ7n1q4ZQZBkDRAByMwAnIMAPujADt_GRBxwEouOWFpPAoWAF1cMosDwLXtdgb8sD2PA6AAYl5YVNtyXlDhkdB5AoAbtZkb8W25bYuKWKKSnoRxsUdigXBeLExooJ3YEcQJjxgegSggHwfFwEPtcmPYyjAbZ3GiJAXlkDx1lkaRXZSFBZAAbiAA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    
+    option = {
+  title: [
+    {
+      text: '各国15～24岁女性识字率'
+    }
+  ],
+ 
+ //圆的空心面积和总体大小
+  polar: {
+    radius: [30, '80%']
+  },
+  
+  angleAxis: {
+    max: 100,
+    startAngle: 75
+  },
+  
+  radiusAxis: {
+    show: false,
+    type: 'category',
+    data: ['Afghanistan', 'Albania', 'Algeria', 'Argentina', 'Bahrain', 'Bangladesh', 'Belarus', 'Benin', 'Brazil', 'Brunei Darussalam', 'Burkina Faso', 'Cameroon', 'Central African Republic', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica', 'Côte d\'Ivoire', 'Eritrea', 'Gabon', 'Ghana', 'Honduras', 'India', 'Indonesia', 'Iraq', 'Italy', 'Jordan', 'Kenya', 'Kuwait', 'Kyrgyzstan', 'Lebanon', 'Madagascar', 'Mali', 'Malta', 'Mauritius', 'Mexico', 'Mongolia', 'Montenegro', 'Morocco', 'Namibia', 'Nepal', 'Nigeria', 'Oman', 'Panama', 'Paraguay', 'Peru', 'Portugal', 'Romania', 'Russian Federation', 'Rwanda', 'Samoa', 'Sao Tome and Principe', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'South Sudan', 'Spain', 'Sudan', 'Suriname', 'Eswatini', 'Timor-Leste', 'Tonga', 'Uganda', 'Uruguay', 'Vanuatu', 'Viet Nam', 'Zambia']
+
+  },
+  
+  //鼠标移上去
+  tooltip: {},
+  
+  series: {
+    type: 'bar',
+    data: [56, 100, 97, 100, 99, 95, 100, 52, 99, 100, 55, 82, 29, 100, 99, 78, 79, 100, 53, 93, 91, 92, 98, 90, 100, 53, 100, 99, 88, 100, 100, 100, 81, 43, 100, 99, 99, 99, 99, 97, 96, 91, 68, 99, 99, 99, 99, 100, 99, 100, 89, 99, 98, 98, 100, 63, 100, 47, 100, 73, 98, 97, 85, 100, 90, 99, 97, 98, 92],
+    
+    //颜色设置
+    itemStyle:{
+      normal:{
+        color:'#FC97AF',
+      }
+    },
+     
+    coordinateSystem: 'polar',
+    label: {
+     
+      position: 'middle',
+      formatter: '{b}: {c}'
+    }
+  }
+};
+
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

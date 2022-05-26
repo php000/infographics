@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+    <div id="container" style="width:100%;height: 100%"></div>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+    <!-- Uncomment this line if you want to dataTool extension
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+    -->
+    <!-- Uncomment this line if you want to use gl extension
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+    -->
+    <!-- Uncomment this line if you want to echarts-stat extension
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+    -->
+    <!-- Uncomment this line if you want to use map
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+    -->
+    <!-- Uncomment these two lines if you want to use bmap extension
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+    -->
+
+    <script type="text/javascript">var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+            title: [
+                {
+                    text: '各国15～24岁人群识字率'
+                    
+                }
+            ],
+
+            polar: {
+                radius: [30, '80%']
+            },
+            angleAxis: {
+                max: 100,
+                startAngle: 75
+            },
+            radiusAxis: {
+                show: false,
+                type: 'category',
+                data: ['Afghanistan', 'Albania', 'Algeria', 'Argentina', 'Bahrain', 'Bangladesh', 'Belarus', 'Benin', 'Brazil', 'Brunei Darussalam', 'Burkina Faso', 'Cameroon', 'Central African Republic', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica', 'Côte d\'Ivoire', 'Eritrea', 'Gabon', 'Ghana', 'Honduras', 'India', 'Indonesia', 'Iraq', 'Italy', 'Jordan', 'Kenya', 'Kuwait', 'Kyrgyzstan', 'Lebanon', 'Madagascar', 'Mali', 'Malta', 'Mauritius', 'Mexico', 'Mongolia', 'Montenegro', 'Morocco', 'Namibia', 'Nepal', 'Nigeria', 'Oman', 'Panama', 'Paraguay', 'Peru', 'Portugal', 'Romania', 'Russian Federation', 'Rwanda', 'Samoa', 'Sao Tome and Principe', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'South Sudan', 'Spain', 'Sudan', 'Suriname', 'Eswatini', 'Timor-Leste', 'Tonga', 'Uganda', 'Uruguay', 'Vanuatu', 'Viet Nam', 'Zambia']
+            },
+            tooltip: {},
+            series: {
+                type: 'bar',
+                data: [65, 99, 97, 100, 100, 93, 100, 61, 99, 100, 58, 85, 38, 100, 99, 78, 82, 99, 58, 93, 90, 92, 97, 92, 100, 56, 100, 99, 88, 99, 100, 100, 81, 50, 99, 99, 99, 99, 99, 98, 95, 92, 75, 99, 99, 98, 99, 100, 99, 100, 86, 99, 98, 98, 99, 67, 100, 48, 100, 73, 99, 95, 84, 99, 89, 99, 96, 98, 92],
+                //颜色设置
+                itemStyle: {
+                    normal: {
+                        color: '#6E6B94',
+                    }
+                },
+                coordinateSystem: 'polar',
+                label: {
+
+                    position: 'middle',
+                    formatter: '{b}: {c}'
+                }
+            }
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+
+  
+</body>
+</html>

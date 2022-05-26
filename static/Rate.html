@@ -1,0 +1,124 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar1&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOSCwcoDAqgDOqBcyoPA6gZtqBsaYK3Wg7K6DkBoHBygZ01egRk1WgcOdKAGiLoAzgFcARmDIVYlSkQC-M9GGDAskEAVTEMAJwgBzGzktUAhqQhyt6XUVz3oAEzNZWD8nMCcCAG1KACUnCGgAMycsLGkNAFEANycQYEtQqGhKAF0dPQxDLCVgUkCLOQALYAB3AjBLBRxy9AScUIVLfEILdBCwgDUIHFbkWEaWto6u2EGnPwB5aCwATwIkrDkcWC8R2ABbJxsIAGMAFW2QIaQ5ppn2zqkMB6GorHicNKUJROSwlY7dYiDOQGQZmF4LKydcFBeROTI4ACCcgAkhd7HD5m8lscgtoykRrslrgosE4lLhFh8iKQMa45JEguYRoS9slDhD9N8qJTVDY8ttpCjYAB6aWwECDMCQBwAWls0DyOClY3CsCi6Sc0NgWIgTlgTn8sAACk5rhAEjdAekBqAjha_LAAMI4aDtZLGuSmp2G1SWODOyyu82W72-_JYANBz6UADqOGhDnDLsegIAMgU4Bizg4bmb3V6QRAlEo-kVkwBZCB-Py4WAGo3lgByeTADWNCWslMB3csveNxcHTkBAGVgAoxyap8np8oVdOnA0QRb-5Pgxmw9GPbP5w1MzvS4C0x2Yz6_QmMQOL8nc30jX4cOisK6Pdc53Gpu4pQWGS6DFOU2ysm4HIWFyFhgEKGjZFgnQeMQIGwGBRCHNY6bQcQsHEFK0BOMWVB8GIkgCl8jxUMCoJUdqoS6hEUqwAALJ8ADMnwcbAABMnwAKxCTxnwAGyfAAjAAnFJsmwDJUkAOyfFKmGnDK0qADkZgBOQYAfdGAHb-KIQKoZzTvBDIEegGqWBcWB4FZxC_l-jiUAAxEpbFrH4kmSqc6GeAKUoXJYADWub_HUGk6pEzzwTRGhog4lwAp8xGkRoGKZDYlDHEBIwBciMFESRQyUMIFF-SM8VlXRVUWDFeqsexXGifxbUqS1sCdXxvF8QADJ8fE9f1alUZpumGcZpnmdsllEXkdkOc1zl5Hg7kAGKetJSkYht9VoaSQWnCF4WRcM0VMbF1FlUl-T2Gk6VlVlOV5VKhXoaU2gANxAA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '不同地区小学阶段男性与女性失学率',
+    subtext: ''
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['Rainfall', 'Evaporation']
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  calculable: true,
+  xAxis: [
+    {
+      show: false,
+      type: 'category',
+      // prettier-ignore
+      data: ['East Asia and Pacific', 'Europe and Central Asia', 'Eastern Europe and Central Asia', 'Western Europe', 'Latin America and Caribbean', 'Middle East and North Africa', 'North America', 'South Asia', 'Sub-Saharan Africa', 'Eastern and Southern Africa', 'West and Central Africa', 'Least developed countries']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  series: [
+    {
+      
+      name: '男性失学率',
+      type: 'bar',
+      
+      data: [
+       4, 3, 4, 2, 5, 5, 4, 6, 19, 19, 19, 17, 
+      ],
+       //颜色设置
+     itemStyle:{
+      normal:{
+        color:'#74add1',
+      }
+    },
+     
+      markLine: {
+        data: [{ type: 'average', name: 'Avg' }]
+      }
+    },
+    {
+      name: '女性失学率',
+      type: 'bar',
+      data: [
+        4, 3, 4, 2, 4, 7, 4, 7, 24, 20, 27, 20
+      ],
+       //颜色设置
+     itemStyle:{
+      normal:{
+        color:'#FC97AF',
+      }
+    },
+     
+      markLine: {
+        data: [{ type: 'average', name: 'Avg' }]
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
